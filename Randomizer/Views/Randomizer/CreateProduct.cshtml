@@ -1,0 +1,28 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+
+
+@model Product
+
+Create your menu !
+@using (Html.BeginForm("CreateProduct", "Randomizer", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new {type = "text"})
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Description)
+        @Html.TextBoxFor(model => model.Description, new {type = "text"})
+    </div>
+
+    <div>
+        <button type="submit">Dodaj produkt</button>
+    </div>
+}
+

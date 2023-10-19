@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model Login
+
+@using (Html.BeginForm("Login", "Randomizer", FormMethod.Post))
+{
+        <div>
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new {type = "text"})
+        </div>
+        <div>
+        @Html.LabelFor(model => model.Password)
+        @Html.TextBoxFor(model => model.Password, new {type = "password"})
+        </div>
+        
+
+
+        <div>
+            <button type="submit">login</button>
+        </div>
+}
+

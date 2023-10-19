@@ -1,0 +1,44 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+@model RegisterUserDto
+
+@using (Html.BeginForm("Register", "Randomizer", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new {type = "text"})
+    </div>
+   
+    <div>
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new {type = "email"})
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Password)
+        @Html.TextBoxFor(model => model.Password, new {type = "password"})
+    </div>
+    <div>
+        @Html.LabelFor(model => model.ConfirmPassword)
+        @Html.TextBoxFor(model => model.ConfirmPassword, new {type = "password"})
+    </div>
+    <div>
+        @Html.LabelFor(model => model.Nationality)
+        @Html.TextBoxFor(model => model.Nationality, new {type = "text"})
+    </div>
+    <div>
+        @Html.LabelFor(model => model.DateOfBirth)
+        @Html.TextBoxFor(model => model.DateOfBirth, new {type = "date"})
+    </div>
+    
+
+    <div>
+        <button type="submit">Create Account</button>
+    </div>
+}
+
+       

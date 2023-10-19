@@ -1,0 +1,7 @@
+﻿
+
+<h2>QR Code for Menu @ViewBag.MenuId</h2>
+
+<img src="@ViewBag.QRCode" style="width: 200px; height: 200px;" />
+
+<a href="@Url.Action("ProductList", "Randomizer", new { id = ViewBag.MenuId })" class="btn btn-primary">Go to Product List</a>
