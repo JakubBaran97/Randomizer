@@ -1,27 +1,139 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-
-@model Login
-
+﻿@model Login
 @using (Html.BeginForm("Login", "Randomizer", FormMethod.Post))
 {
-        <div>
-        @Html.LabelFor(model => model.Email)
-        @Html.TextBoxFor(model => model.Email, new {type = "text"})
-        </div>
-        <div>
-        @Html.LabelFor(model => model.Password)
-        @Html.TextBoxFor(model => model.Password, new {type = "password"})
-        </div>
-        
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Your Razor Page</title>
+        <link rel="stylesheet" href="~/css/mystyles.css" asp-append-version="true" />
+        <style>
 
+            #panel {
+                width: 400px;
+                margin: 0 auto;
+                padding: 15px 0 0;
+                background: #fff;
+                border: 1px solid silver;
+                font: 16px calibri;
+                letter-spacing: -1px;
+                -webkit-box-shadow: 0 0 2px silver;
+                -moz-box-shadow: 0 0 2px silver;
+                box-shadow: 0 0 2px silver;
+            }
 
-        <div>
-            <button type="submit">login</button>
+            label {
+                display: block;
+                width: 260px;
+                padding: 10px 20px;
+                color: #696969;
+                font-size: 16px;
+                text-shadow: 0 0 1px silver;
+            }
+
+            #email, #password {
+                display: block;
+                width: 360px;
+                margin: 0 auto;
+                padding: 10px 5px;
+                border: 1px solid silver;
+                outline: 5px solid #ebebeb;
+                font-size: 22px;
+            }
+
+                #email:focus, #password:focus {
+                    outline: 5px solid #e5f2f8;
+                }
+
+            #lower {
+                background: #ecf2f5;
+                width: 100%;
+                padding: 5px 20px;
+                margin-top: 20px;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                background: #98c9dc;
+                border: 1px solid #005f85;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-align: center;
+                width: 70px;
+                text-shadow: 0 0 1px black;
+            }
+
+                .button:hover {
+                    background: #98c9dc;
+                    border: 1px solid #005f85;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    text-align: center;
+                    width: 70px;
+                    text-shadow: 0 0 1px black;
+                }
+
+            input[type="submit"] {
+                width: 70px;
+                padding: 5px 13px;
+                border: 1px solid #005f85;
+                color: white;
+                text-shadow: 0 0 1px black;
+                background: #98c9dc;
+                position: left;
+                left: 180px;
+            }
+
+            #panel, input[type="submit"] {
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="panel">
+            <form>
+                <center><b>Login</b></center>
+                @Html.LabelFor(model => model.Email)
+                @Html.TextBoxFor(model => model.Email, new {type = "text", id ="email"})
+
+                @Html.LabelFor(model => model.Password)
+                @Html.TextBoxFor(model => model.Password, new {type = "password", id = "password"})
+
+                <center>
+                    <div id="lower" style="display: flex; justify-content: space-between;">
+                        <input type="submit" value="Login">
+                        <a href="@Url.Action("Register", "Randomizer")" class="button">Register</a>
+                    </div>
+                </center>
+            </form>
         </div>
+    </body>
+    </html>
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

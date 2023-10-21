@@ -23,16 +23,16 @@ namespace Randomizer
                 });
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<RandomizerDbContext>();
-            builder.Services.AddScoped<IRandomizerService, RandomizerServices>();
-            builder.Services.AddScoped<IAccountServices, AccountServices>();
-            builder.Services.AddScoped<IQRService, QRService>();
-            builder.Services.AddScoped<IUserContextService, UserContextService>();
+            builder.Services.AddTransient<IRandomizerService, RandomizerServices>();
+            builder.Services.AddTransient<IAccountServices, AccountServices>();
+            builder.Services.AddTransient<IQRService, QRService>();
+            builder.Services.AddTransient<IUserContextService, UserContextService>();
             builder.Services.AddHttpContextAccessor();
-            builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
+            builder.Services.AddTransient<IPasswordHasher<User>, PasswordHasher<User>>();
             
-            builder.Services.AddScoped<ErrorHandlingMiddleweare>();
-            builder.Services.AddScoped<IAuthorizationHandler, MenuOperationRequirementHandler>();
-            builder.Services.AddScoped<IAuthorizationHandler, ProductOperationRequirementHandler>();
+            builder.Services.AddTransient<ErrorHandlingMiddleweare>();
+            builder.Services.AddTransient<IAuthorizationHandler, MenuOperationRequirementHandler>();
+            builder.Services.AddTransient<IAuthorizationHandler, ProductOperationRequirementHandler>();
 
             var app = builder.Build();
 

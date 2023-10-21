@@ -1,11 +1,73 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Your Razor Page</title>
+    <link rel="stylesheet" href="~/css/mystyles.css" asp-append-version="true" />
+    <style>
+        #panel {
+            width: 20%;
+            margin: 0 auto;
+            padding: 15px 0 0;
+            background: #fff;
+            border: 1px solid silver;
+            font: 16px calibri;
+            letter-spacing: -1px;
+            -webkit-box-shadow: 0 0 2px silver;
+            -moz-box-shadow: 0 0 2px silver;
+            box-shadow: 0 0 2px silver;
+        }
 
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #98c9dc;
+            border: 1px solid #005f85;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100px;
+            text-shadow: 0 0 1px black;
+            margin: 10px 0; /* Odstęp między przyciskami */
+        }
 
+            .button:hover {
+                background: #98c9dc;
+                border: 1px solid #005f85;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-align: center;
+                width: 100px;
+                text-shadow: 0 0 1px black;
+            }
 
-Welcome !
-
+        #panel {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="panel">
+        <form>
+            <div class="button-container">
+                <a href="@Url.Action("CreateMenu", "Randomizer")" class="button">Create Menu</a>
+                <a href="@Url.Action("MenuList", "Randomizer")" class="button">Menu List</a>
+                <a href="@Url.Action("Logout", "Randomizer")" class="button">Logout</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

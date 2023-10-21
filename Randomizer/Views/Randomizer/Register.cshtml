@@ -1,44 +1,138 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-
-@model RegisterUserDto
+﻿@model RegisterUserDto
 
 @using (Html.BeginForm("Register", "Randomizer", FormMethod.Post))
 {
-    <div>
-        @Html.LabelFor(model => model.Name)
-        @Html.TextBoxFor(model => model.Name, new {type = "text"})
-    </div>
-   
-    <div>
-        @Html.LabelFor(model => model.Email)
-        @Html.TextBoxFor(model => model.Email, new {type = "email"})
-    </div>
-    <div>
-        @Html.LabelFor(model => model.Password)
-        @Html.TextBoxFor(model => model.Password, new {type = "password"})
-    </div>
-    <div>
-        @Html.LabelFor(model => model.ConfirmPassword)
-        @Html.TextBoxFor(model => model.ConfirmPassword, new {type = "password"})
-    </div>
-    <div>
-        @Html.LabelFor(model => model.Nationality)
-        @Html.TextBoxFor(model => model.Nationality, new {type = "text"})
-    </div>
-    <div>
-        @Html.LabelFor(model => model.DateOfBirth)
-        @Html.TextBoxFor(model => model.DateOfBirth, new {type = "date"})
-    </div>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>@ViewData["Title"] - Your Razor Page</title>
+        <link rel="stylesheet" href="~/css/mystyles.css" asp-append-version="true" />
+        <style>
+
+            #panel {
+                width: 400px;
+                margin: 0 auto;
+                padding: 15px 0 0;
+                background: #fff;
+                border: 1px solid silver;
+                font: 16px calibri;
+                letter-spacing: -1px;
+                -webkit-box-shadow: 0 0 2px silver;
+                -moz-box-shadow: 0 0 2px silver;
+                box-shadow: 0 0 2px silver;
+            }
+
+            label {
+                display: block;
+                width: 260px;
+                padding: 10px 20px;
+                color: #696969;
+                font-size: 16px;
+                text-shadow: 0 0 1px silver;
+            }
+
+            #name, #email, #password, #confirmPassword, #nationality, #date {
+                display: block;
+                width: 360px;
+                margin: 0 auto;
+                padding: 10px 5px;
+                border: 1px solid silver;
+                outline: 5px solid #ebebeb;
+                font-size: 22px;
+            }
+
+            #name:focus, #email:focus, #password:focus, #confirmPassword:focus, #nationality:focus, #date:focus {
+                    outline: 5px solid #e5f2f8;
+                }
+
+            #lower {
+                background: #ecf2f5;
+                width: 100%;
+                padding: 5px 20px;
+                margin-top: 20px;
+            }
+
+
+
+            input[type="submit"] {
+                width: 70px;
+                padding: 5px 13px;
+                border: 1px solid #005f85;
+                color: white;
+                text-shadow: 0 0 1px black;
+                background: #98c9dc;
+                position: left;
+                left: 180px;
+            }
+
+            #panel, input[type="submit"] {
+                -webkit-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div id="panel">
+            <form>
+
+                @Html.LabelFor(model => model.Name)
+                @Html.TextBoxFor(model => model.Name, new {type = "text", id = "name"})
+
+                @Html.LabelFor(model => model.Email)
+                @Html.TextBoxFor(model => model.Email, new {type = "email", id = "email"})
+
+                @Html.LabelFor(model => model.Password)
+                @Html.TextBoxFor(model => model.Password, new {type = "password", id = "password"})
+
+                @Html.LabelFor(model => model.ConfirmPassword)
+                @Html.TextBoxFor(model => model.ConfirmPassword, new {type = "password", id = "confirmPassword"})
+
+                @Html.LabelFor(model => model.Nationality)
+                @Html.TextBoxFor(model => model.Nationality, new {type = "text", id = "nationality"})
+
+                @Html.LabelFor(model => model.DateOfBirth)
+                @Html.TextBoxFor(model => model.DateOfBirth, new {type = "date", id = "date"})
+
+
+                <div id="lower">
+
+                    <input type="submit" value="Register">
+                </div>
+            </form>
+        </div>
+    </body>
+    </html>
+}
+
+
+
+
+
+
+    
+       
+    
     
 
-    <div>
-        <button type="submit">Create Account</button>
-    </div>
+    
 }
 
        
+
+
+
+
+
+
+
+
+
+
+
+
+
+

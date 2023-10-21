@@ -3702,11 +3702,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Kubunio\\Desktop\\Randomizer\\Randomizer.csproj",
+      "projectUniqueName": "C:\\Users\\Kubunio\\Source\\Repos\\Randomizer\\Randomizer\\Randomizer.csproj",
       "projectName": "Randomizer",
-      "projectPath": "C:\\Users\\Kubunio\\Desktop\\Randomizer\\Randomizer.csproj",
+      "projectPath": "C:\\Users\\Kubunio\\Source\\Repos\\Randomizer\\Randomizer\\Randomizer.csproj",
       "packagesPath": "C:\\Users\\Kubunio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Kubunio\\Desktop\\Randomizer\\obj\\",
+      "outputPath": "C:\\Users\\Kubunio\\Source\\Repos\\Randomizer\\Randomizer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Kubunio\\AppData\\Roaming\\NuGet\\NuGet.Config",

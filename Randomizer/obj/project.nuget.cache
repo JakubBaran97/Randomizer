@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/+0qtzuXEKn+K2vLuPK0Ukxjy/NJGiZq8Dly/OlHDdtyopi/3qO6D57WfrTq+tOvbn0k/QIj7soBAWtzASdc0A==",
+  "dgSpecHash": "JEaTRS0AAtnqcrLyABWMk3nar85SNFJ34kE1bZnWLN5JngQxugTWmA5q7wCeOZnOab2RAxuY6NUwap8Xvyh3mg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Kubunio\\Desktop\\Randomizer\\Randomizer.csproj",
+  "projectFilePath": "C:\\Users\\Kubunio\\source\\repos\\Randomizer\\Randomizer\\Randomizer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Kubunio\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Kubunio\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

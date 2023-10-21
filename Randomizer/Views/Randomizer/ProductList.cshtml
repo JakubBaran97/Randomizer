@@ -1,50 +1,146 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Your Razor Page</title>
+    <link rel="stylesheet" href="~/css/mystyles.css" asp-append-version="true" />
+    <style>
 
-
-<table class="table">
-    <thead>
-        <tr>
-
-            <th>My Menu</th>
-
-
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @model List<Product>
-        @foreach (var product in Model)
-        {
-                <tr>
-
-                 <th>@product.Name</th>
-                <th>@product.Description</th>
-
-                <th>@Html.ActionLink("DeleteProduct", "DeleteProduct", "Randomizer", new { id = product.Id }, new { @class = "btn btn-danger" })</th>
-
-
-
-
-
-
-                
-
-
-                </tr>
+        #panel {
+            width: 100%;
+            margin: 0 auto;
+            padding: 15px 0 0;
+            background: #fff;
+            border: 1px solid silver;
+            font: 16px calibri;
+            letter-spacing: -1px;
+            -webkit-box-shadow: 0 0 2px silver;
+            -moz-box-shadow: 0 0 2px silver;
+            box-shadow: 0 0 2px silver;
         }
-        
 
-    </tbody>
-    </table>
+        label {
+            display: block;
+            width: 260px;
+            padding: 10px 20px;
+            color: #696969;
+            font-size: 16px;
+            text-shadow: 0 0 1px silver;
+        }
 
 
 
-<th>@Html.ActionLink("Draw", "Randomize", "Randomizer", new { id = Model.First().MenuId }, new { @class = "btn btn-danger" })</th>
-    
+
+
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #98c9dc;
+            border: 1px solid #005f85;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            width: 100%;
+            text-shadow: 0 0 1px black;
+        }
+
+            .button:hover {
+                background: #98c9dc;
+                border: 1px solid #005f85;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-align: center;
+                width: 100%;
+                text-shadow: 0 0 1px black;
+            }
+
+
+
+        #panel {
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="panel">
+        <form>
+
+            <table class="table">
+                <thead>
+                    <tr>
+
+                        <th>Product Name</th>
+                        <th>Description</th>
+
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @model List<Product>
+                    @foreach (var product in Model)
+                    {
+                        <tr>
+                            
+                            <th>@product.Name</th>
+                            
+                            <th>@product.Description</th>
+
+
+                            
+                            <th><a href="@Url.Action("DeleteProduct", "Randomizer", new { id = product.Id })" class="button">Delete</a></th>
+
+
+                            
+
+
+
+
+                        </tr>
+                    }
+                <th><a href="@Url.Action("Randomize", "Randomizer", new { id = @Model.First().MenuId })" class="button">Draw</a></th>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

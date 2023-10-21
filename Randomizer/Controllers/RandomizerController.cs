@@ -28,7 +28,7 @@ namespace Randomizer.Controllers
             _accountServices = accountServices;
             _qrService = qrService;
         }
-        
+        [Authorize]
         public IActionResult Index()
         {
             
@@ -39,7 +39,7 @@ namespace Randomizer.Controllers
         [HttpGet]
         public IActionResult Login()
         {
-            
+
             return View();
         }
         [Route("login")]
@@ -48,6 +48,7 @@ namespace Randomizer.Controllers
         {
             try
             {
+                
                 _accountServices.GenerateCookie(login);
                 return RedirectToAction("Index");
             }
