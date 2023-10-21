@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Kubunio\\source\\repos\\Randomizer\\Randomizer\\Randomizer.csproj": {}
+    "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\Randomizer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Kubunio\\source\\repos\\Randomizer\\Randomizer\\Randomizer.csproj": {
+    "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\Randomizer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Kubunio\\source\\repos\\Randomizer\\Randomizer\\Randomizer.csproj",
+        "projectUniqueName": "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\Randomizer.csproj",
         "projectName": "Randomizer",
-        "projectPath": "C:\\Users\\Kubunio\\source\\repos\\Randomizer\\Randomizer\\Randomizer.csproj",
+        "projectPath": "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\Randomizer.csproj",
         "packagesPath": "C:\\Users\\Kubunio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Kubunio\\source\\repos\\Randomizer\\Randomizer\\obj\\",
+        "outputPath": "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Kubunio\\AppData\\Roaming\\NuGet\\NuGet.Config",
