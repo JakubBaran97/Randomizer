@@ -176,6 +176,7 @@ namespace Randomizer.Controllers
 
         
         [HttpGet]
+        
         public IActionResult ProductList([FromRoute] int id)
 
         {

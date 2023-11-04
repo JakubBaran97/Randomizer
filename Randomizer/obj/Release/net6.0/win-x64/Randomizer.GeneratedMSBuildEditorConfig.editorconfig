@@ -1,0 +1,77 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Randomizer
+build_property.RootNamespace = Randomizer
+build_property.ProjectDir = C:\Users\Kubunio\Documents\GitHub\Randomizer\Randomizer\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Kubunio\Documents\GitHub\Randomizer\Randomizer
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/CreateMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxDcmVhdGVNZW51LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/CreateProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxDcmVhdGVQcm9kdWN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/ErrorView.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxFcnJvclZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/GenerateQRCodeForMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxHZW5lcmF0ZVFSQ29kZUZvck1lbnUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/MenuList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxNZW51TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/ProductList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxQcm9kdWN0TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/Randomize.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxSYW5kb21pemUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-2h46to4i87

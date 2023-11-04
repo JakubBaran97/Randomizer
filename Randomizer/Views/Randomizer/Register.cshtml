@@ -9,6 +9,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>@ViewData["Title"] - Your Razor Page</title>
         <link rel="stylesheet" href="~/css/mystyles.css" asp-append-version="true" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                
+                $.get("https://restcountries.com/v2/all", function (data) {
+                    
+                    $.each(data, function (index, country) {
+                        $("#nationality").append($("<option></option>").attr("value", country.alpha3Code).text(country.name));
+                    });
+                });
+            });
+        </script>
+
         <style>
 
             #panel {
@@ -43,7 +57,7 @@
                 font-size: 22px;
             }
 
-            #name:focus, #email:focus, #password:focus, #confirmPassword:focus, #nationality:focus, #date:focus {
+                #name:focus, #email:focus, #password:focus, #confirmPassword:focus, #nationality:focus, #date:focus {
                     outline: 5px solid #e5f2f8;
                 }
 
@@ -92,7 +106,8 @@
                 @Html.TextBoxFor(model => model.ConfirmPassword, new {type = "password", id = "confirmPassword"})
 
                 @Html.LabelFor(model => model.Nationality)
-                @Html.TextBoxFor(model => model.Nationality, new {type = "text", id = "nationality"})
+                <select id="nationality" name="Nationality"></select>
+
 
                 @Html.LabelFor(model => model.DateOfBirth)
                 @Html.TextBoxFor(model => model.DateOfBirth, new {type = "date", id = "date"})
@@ -113,15 +128,15 @@
 
 
 
-    
-       
-    
-    
 
-    
+
+
+
+
+
 }
 
-       
+
 
 
 

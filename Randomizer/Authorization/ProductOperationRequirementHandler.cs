@@ -10,11 +10,7 @@ namespace Randomizer.Authorization
         {
             protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, ProductOperationRequirement requirement, Product product)
             {
-                if (requirement.ResourceOperation == ProductResourceOperation.Read ||
-                  requirement.ResourceOperation == ProductResourceOperation.Create)
-                {
-                    context.Succeed(requirement);
-                }
+               
 
                 var userId = context.User.FindFirst(c => c.Type == ClaimTypes.NameIdentifier).Value;
 
