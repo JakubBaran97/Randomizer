@@ -17,6 +17,10 @@ namespace Randomizer.Services
     {
         public void GenerateCookie(Login login);
         public void RegisterUser(RegisterUserDto dto);
+
+        public void EditUser(EditUserDto editedData);
+        public int FindUser();
+        public void DeleteUser();
         public void Logout();
     }
     public class AccountServices : IAccountServices
@@ -52,30 +56,30 @@ namespace Randomizer.Services
             {
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Name, $"{user.Name}"),
-                
+
                 new Claim("DateOfBirth", user.DateOfBirth.Value.ToString("yyyy-MM-dd")),
-                    
+
             };
-            ClaimsIdentity claimsIdentity= new ClaimsIdentity(claims,
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims,
                 Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationDefaults.AuthenticationScheme);
             ClaimsPrincipal claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
 
 
             _contextAccessor.HttpContext.SignInAsync(claimsPrincipal);
-            
+
         }
-        
+
         public void RegisterUser(RegisterUserDto dto)
         {
 
             var email = _dbContext.User.FirstOrDefault(x => x.Email == dto.Email);
-            if (email != null) 
+            if (email != null)
             {
                 throw new BadRequestException("Email already in use");
             }
 
 
-            if ( dto.Password != dto.ConfirmPassword)
+            if (dto.Password != dto.ConfirmPassword)
             {
                 throw new BadRequestException("Passwords are not the same");
             }
@@ -85,7 +89,7 @@ namespace Randomizer.Services
                 Email = dto.Email,
                 Nationality = dto.Nationality,
                 DateOfBirth = dto.DateOfBirth,
-                
+
 
             };
 
@@ -95,13 +99,90 @@ namespace Randomizer.Services
 
             _dbContext.User.Add(newUser);
             _dbContext.SaveChanges();
+
+        }
+
+        public void EditUser(EditUserDto editedData )
+        {
+            var email = _dbContext.User.FirstOrDefault(x => x.Email == editedData.Email);
+            if (email != null)
+            {
+                throw new BadRequestException("Email already in use");
+            }
+
+            var userIdInt = FindUser();
+            var user = _dbContext.User.FirstOrDefault(x => x.Id == userIdInt);
+
+
+            if (user == null)
+            {
+                throw new NotFoundException("User not found!");
+            }
+            user.Name= editedData.Name;
+            user.Email = editedData.Email;
+            user.Nationality= editedData.Nationality;
+            user.DateOfBirth= editedData.DateOfBirth;
+
+            var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, editedData.Password);
+
+            if (result == PasswordVerificationResult.Failed)
+            {
+                throw new BadRequestException("Invaild username or password");
+            }
+
+
             
+            _dbContext.SaveChanges();
+        }
+
+        public int FindUser()
+        {
+            var user = _contextAccessor.HttpContext?.User;
+            if (user == null) throw new NotFoundException("User not found!");
+
+
+            var userId = user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                throw new BadRequestException("Unable to retrieve user identifier");
+            }
+
+
+            if (!int.TryParse(userId, out int userIdInt))
+            {
+                throw new BadRequestException("Invalid user identifier format");
+            }
+
+
+
+            return userIdInt;
+        }
+
+        public void DeleteUser()
+        {
+            var userIdInt = FindUser();
+
+
+            var deleteUser = _dbContext.User.FirstOrDefault(x => x.Id == userIdInt);
+
+
+            if (deleteUser == null)
+            {
+                throw new NotFoundException("User not found!");
+            }
+
+
+            _dbContext.User.Remove(deleteUser);
+            _dbContext.SaveChanges();
+            _contextAccessor.HttpContext.SignOutAsync();
         }
 
         public void Logout()
         {
             _contextAccessor.HttpContext.SignOutAsync();
-            
+
         }
 
     }

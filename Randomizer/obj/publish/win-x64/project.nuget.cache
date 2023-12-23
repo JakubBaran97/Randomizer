@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "nrqyKWfmMhL3VbbRxkBKPDGbxTXIzqodCgnWhd3CMSptiF/oHu9jDXpLa57ZFDvP2X/yqnY6Vi5mWTosjINMRA==",
+  "dgSpecHash": "D3IS1oDXtfKloHk+ap80GkPZ3puXalRlm8BSigsIleMVrWBN2dG5stNjAIyR1KH5wrihwDq3juaiYTGVf+ZkMg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\Randomizer.csproj",
   "expectedPackageFiles": [
@@ -85,7 +85,11 @@
     "C:\\Users\\Kubunio\\.nuget\\packages\\system.text.json\\7.0.0\\system.text.json.7.0.0.nupkg.sha512",
     "C:\\Users\\Kubunio\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\Kubunio\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
-    "C:\\Users\\Kubunio\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
+    "C:\\Users\\Kubunio\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512",
+    "C:\\Users\\Kubunio\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\6.0.11\\microsoft.netcore.app.runtime.win-x64.6.0.11.nupkg.sha512",
+    "C:\\Users\\Kubunio\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\6.0.11\\microsoft.windowsdesktop.app.runtime.win-x64.6.0.11.nupkg.sha512",
+    "C:\\Users\\Kubunio\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\6.0.11\\microsoft.aspnetcore.app.runtime.win-x64.6.0.11.nupkg.sha512",
+    "C:\\Users\\Kubunio\\.nuget\\packages\\microsoft.netcore.app.crossgen2.win-x64\\6.0.11\\microsoft.netcore.app.crossgen2.win-x64.6.0.11.nupkg.sha512"
   ],
   "logs": []
 }

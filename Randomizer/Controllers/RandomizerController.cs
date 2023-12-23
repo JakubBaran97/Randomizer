@@ -15,10 +15,10 @@ using SixLabors.ImageSharp.Processing;
 
 namespace Randomizer.Controllers
 {
-    
+
     public class RandomizerController : Controller
     {
-        
+
         private readonly IRandomizerService _randomizerService;
         private readonly IAccountServices _accountServices;
         private readonly IQRService _qrService;
@@ -31,7 +31,7 @@ namespace Randomizer.Controllers
         [Authorize]
         public IActionResult Index()
         {
-            
+
             return View();
         }
 
@@ -48,7 +48,7 @@ namespace Randomizer.Controllers
         {
             try
             {
-                
+
                 _accountServices.GenerateCookie(login);
                 return RedirectToAction("Index");
             }
@@ -58,7 +58,7 @@ namespace Randomizer.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
                 return View("ErrorView");
             }
-            
+
         }
 
 
@@ -93,7 +93,43 @@ namespace Randomizer.Controllers
             }
         }
 
-       
+        public IActionResult EditUser()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult EditUser(EditUserDto user)
+        {
+            _accountServices.EditUser(user);
+            return RedirectToAction("Index");
+        }
+
+
+        public IActionResult DeleteUser()
+        {
+            try
+            {
+                _accountServices.DeleteUser();
+
+                return RedirectToAction("Index");
+            }
+            catch (BadRequestException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                ViewData["ErrorMessage"] = ex.Message;
+                return View("ErrorView");
+            }
+            catch (NotFoundException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                ViewData["ErrorMessage"] = ex.Message;
+                return View("ErrorView");
+            }
+
+        }
+
+
 
         [Authorize]
         [HttpGet]
@@ -119,8 +155,8 @@ namespace Randomizer.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
                 return View("ErrorView");
             }
-            
-            
+
+
         }
 
         [Authorize]
@@ -140,7 +176,7 @@ namespace Randomizer.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
                 return View("ErrorView");
             }
-            
+
 
         }
 
@@ -149,14 +185,14 @@ namespace Randomizer.Controllers
         public IActionResult CreateProduct([FromRoute] int id)
 
         {
-            
+
 
             return View();
         }
 
         [Authorize]
         [HttpPost]
-        public IActionResult CreateProduct(Product product , [FromRoute]int id)
+        public IActionResult CreateProduct(Product product, [FromRoute] int id)
 
         {
             try
@@ -171,12 +207,12 @@ namespace Randomizer.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
                 return View("ErrorView");
             }
-           
+
         }
 
-        
+
         [HttpGet]
-        
+
         public IActionResult ProductList([FromRoute] int id)
 
         {
@@ -192,11 +228,11 @@ namespace Randomizer.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
                 return View("ErrorView");
             }
-            
+
 
         }
 
-        
+
         [HttpPost]
         public IActionResult ProductList()
 
@@ -207,7 +243,7 @@ namespace Randomizer.Controllers
 
         [Authorize]
         [HttpGet]
-       
+
         public IActionResult Randomize([FromRoute] int id)
 
         {
@@ -224,22 +260,22 @@ namespace Randomizer.Controllers
                 ViewData["ErrorMessage"] = ex.Message;
                 return View("ErrorView");
             }
-            
+
 
         }
 
         [Authorize]
         [HttpPost]
-        
+
         public IActionResult Randomize()
 
         {
             return View();
         }
 
-        
-       [Authorize]
-       
+
+        [Authorize]
+
         public IActionResult DeleteMenu(int id)
 
         {
@@ -261,12 +297,12 @@ namespace Randomizer.Controllers
                 ViewData["ErrorMessage"] = "Forbidden";
                 return View("ErrorView");
             }
-           
+
         }
 
         [Authorize]
-        
-        public IActionResult DeleteProduct([FromRoute]int id)
+
+        public IActionResult DeleteProduct([FromRoute] int id)
 
         {
             try
@@ -287,7 +323,7 @@ namespace Randomizer.Controllers
                 ViewData["ErrorMessage"] = "Forbidden";
                 return View("ErrorView");
             }
-            
+
         }
         [Authorize]
         [HttpGet]
@@ -295,13 +331,13 @@ namespace Randomizer.Controllers
         {
             try
             {
-                
+
                 string productListUrl = Url.Link("default", new { controller = "Randomizer", action = "ProductList", id = menuId });
 
 
                 string qrCode = _qrService.QRGenerate(productListUrl);
 
-                
+
                 ViewBag.QRCode = "data:image/png;base64," + qrCode;
                 ViewBag.MenuId = menuId;
 
@@ -309,14 +345,14 @@ namespace Randomizer.Controllers
             }
             catch (NotFoundException ex)
             {
-                
+
                 ModelState.AddModelError(string.Empty, ex.Message);
                 ViewData["ErrorMessage"] = ex.Message;
                 return View("ErrorView");
             }
         }
 
-       
+
 
 
 

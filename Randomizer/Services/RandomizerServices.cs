@@ -44,7 +44,7 @@ namespace Randomizer.Services
 
             var newMenu = new Menu()
             {
-                Name = menu.Name,
+                Name = menu.Name
                 
 
             };
