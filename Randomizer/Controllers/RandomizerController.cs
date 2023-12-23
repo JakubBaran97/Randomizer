@@ -11,7 +11,8 @@ using System.Reflection.Metadata.Ecma335;
 using System.Drawing;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
-
+using Microsoft.EntityFrameworkCore;
+using Randomizer.Entities;
 
 namespace Randomizer.Controllers
 {
@@ -22,11 +23,13 @@ namespace Randomizer.Controllers
         private readonly IRandomizerService _randomizerService;
         private readonly IAccountServices _accountServices;
         private readonly IQRService _qrService;
+      
         public RandomizerController(IRandomizerService randomizerService, IAccountServices accountServices, IQRService qrService)
         {
             _randomizerService = randomizerService;
             _accountServices = accountServices;
             _qrService = qrService;
+            
         }
         [Authorize]
         public IActionResult Index()
@@ -95,14 +98,31 @@ namespace Randomizer.Controllers
 
         public IActionResult EditUser()
         {
-            return View();
+            var userId = _accountServices.FindUserId();
+            var user = _accountServices.FindUserToEdit(userId);
+            return View(user);
         }
 
         [HttpPost]
         public IActionResult EditUser(EditUserDto user)
         {
-            _accountServices.EditUser(user);
-            return RedirectToAction("Index");
+            try
+            {
+                _accountServices.EditUser(user);
+                return RedirectToAction("Index");
+            }
+            catch (BadRequestException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                ViewData["ErrorMessage"] = ex.Message;
+                return View("ErrorView");
+            }
+            catch (NotFoundException ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                ViewData["ErrorMessage"] = ex.Message;
+                return View("ErrorView");
+            }
         }
 
 
@@ -127,6 +147,11 @@ namespace Randomizer.Controllers
                 return View("ErrorView");
             }
 
+        }
+
+        public IActionResult AccountMenu()
+        {
+            return View();
         }
 
 

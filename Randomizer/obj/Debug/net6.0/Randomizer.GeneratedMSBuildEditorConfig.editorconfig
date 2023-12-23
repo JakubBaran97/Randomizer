@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Kubunio\Documents\GitHub\Randomizer\Randomizer
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/AccountMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxBY2NvdW50TWVudS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/CreateMenu.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxDcmVhdGVNZW51LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

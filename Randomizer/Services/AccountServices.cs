@@ -19,7 +19,8 @@ namespace Randomizer.Services
         public void RegisterUser(RegisterUserDto dto);
 
         public void EditUser(EditUserDto editedData);
-        public int FindUser();
+        public int FindUserId();
+        public EditUserDto FindUserToEdit(int id);
         public void DeleteUser();
         public void Logout();
     }
@@ -110,7 +111,7 @@ namespace Randomizer.Services
                 throw new BadRequestException("Email already in use");
             }
 
-            var userIdInt = FindUser();
+            var userIdInt = FindUserId();
             var user = _dbContext.User.FirstOrDefault(x => x.Id == userIdInt);
 
 
@@ -127,7 +128,7 @@ namespace Randomizer.Services
 
             if (result == PasswordVerificationResult.Failed)
             {
-                throw new BadRequestException("Invaild username or password");
+                throw new BadRequestException("Invaild password");
             }
 
 
@@ -135,7 +136,12 @@ namespace Randomizer.Services
             _dbContext.SaveChanges();
         }
 
-        public int FindUser()
+        public void EditPassword()
+        {
+
+        }
+
+        public int FindUserId()
         {
             var user = _contextAccessor.HttpContext?.User;
             if (user == null) throw new NotFoundException("User not found!");
@@ -160,9 +166,18 @@ namespace Randomizer.Services
             return userIdInt;
         }
 
+        public EditUserDto FindUserToEdit(int id)
+        {
+            var user = _dbContext.User.FirstOrDefault(x => x.Id == id);
+
+            return user;
+        }
+
+        
+
         public void DeleteUser()
         {
-            var userIdInt = FindUser();
+            var userIdInt = FindUserId();
 
 
             var deleteUser = _dbContext.User.FirstOrDefault(x => x.Id == userIdInt);
