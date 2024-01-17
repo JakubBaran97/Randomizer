@@ -9,8 +9,7 @@ namespace Randomizer.Models
         [MaxLength(45)]
         public string Name { get; set; }
 
-        [MaxLength(45)]
-        public string Email { get; set; }
+       
 
         [MaxLength(20)]
         [MinLength(8)]

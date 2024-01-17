@@ -96,20 +96,17 @@
                 @Html.LabelFor(model => model.Name)
                 @Html.TextBoxFor(model => model.Name, new {type = "text", id = "name"})
 
-                @Html.LabelFor(model => model.Email)
-                @Html.TextBoxFor(model => model.Email, new {type = "email", id = "email"})
+
 
 
                 @Html.LabelFor(model => model.Nationality)
                 <select id="nationality" name="Nationality"></select>
 
 
-                @Html.LabelFor(model => model.DateOfBirth)
-                @Html.TextBoxFor(model => model.DateOfBirth, new {type = "date", id = "date"})
+                @Html.Label("Date of Birth")
+                @Html.TextBoxFor(model => model.DateOfBirth, new { type = "date", id = "date"})
 
-                <center><h4>Insert Password to confirm</h4></center>
-
-                @Html.LabelFor(model => model.Password)
+                @Html.LabelFor(model => model.Password, "Insert password to confirm")
                 @Html.TextBoxFor(model => model.Password, new {type = "password", id = "password"})
 
                 <div id="lower">
@@ -118,7 +115,7 @@
                 </div>
             </form>
 
-            
+
         </div>
     </body>
     </html>

@@ -54,7 +54,6 @@
             position: left;
             left: 180px;
             text-decoration: none;
-
             cursor: default;
         }
 
@@ -64,21 +63,47 @@
             border-radius: 5px;
         }
 
+
+
+      
+
     </style>
+    <script>
+
+        function printDiv() {
+            var printContents = document.getElementById('printableDiv').innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+    </script>
+
 </head>
 
 <body>
     <div id="panel">
         <form>
-           
-            <center><img src="@ViewBag.QRCode" style="width: 200px; height: 200px;" /></center>
+            <div id="printableDiv">
+
+                <center><img src="@ViewBag.QRCode" style="width: 200px; height: 200px;" /></center>
+
+            </div>
 
             <div id="lower">
 
-                <center><a id="custom-link" href="@Url.Action("ProductList", "Randomizer", new { id = ViewBag.MenuId,})">Go to Product List</a></center>
+                <button onclick="printDiv()">Drukuj</button>
 
             </div>
         </form>
+
+
+
+
+
     </div>
 </body>
 </html>

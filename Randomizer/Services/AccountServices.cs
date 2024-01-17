@@ -19,9 +19,10 @@ namespace Randomizer.Services
         public void RegisterUser(RegisterUserDto dto);
 
         public void EditUser(EditUserDto editedData);
+        public void EditPassword(EditPasswordDto editedData);
         public int FindUserId();
         public EditUserDto FindUserToEdit(int id);
-        public void DeleteUser();
+        public void DeleteUser(string password);
         public void Logout();
     }
     public class AccountServices : IAccountServices
@@ -103,14 +104,14 @@ namespace Randomizer.Services
 
         }
 
-        public void EditUser(EditUserDto editedData )
+        public void EditUser(EditUserDto editedData)
         {
-            var email = _dbContext.User.FirstOrDefault(x => x.Email == editedData.Email);
-            if (email != null)
-            {
-                throw new BadRequestException("Email already in use");
-            }
-
+           
+            if (editedData.DateOfBirth == null) throw new BadRequestException("Birth date is empty");
+            
+            
+                
+            
             var userIdInt = FindUserId();
             var user = _dbContext.User.FirstOrDefault(x => x.Id == userIdInt);
 
@@ -119,10 +120,9 @@ namespace Randomizer.Services
             {
                 throw new NotFoundException("User not found!");
             }
-            user.Name= editedData.Name;
-            user.Email = editedData.Email;
-            user.Nationality= editedData.Nationality;
-            user.DateOfBirth= editedData.DateOfBirth;
+            user.Name = editedData.Name;
+            user.Nationality = editedData.Nationality;
+            user.DateOfBirth = editedData.DateOfBirth;
 
             var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, editedData.Password);
 
@@ -132,13 +132,31 @@ namespace Randomizer.Services
             }
 
 
-            
+
             _dbContext.SaveChanges();
         }
 
-        public void EditPassword()
+        public void EditPassword(EditPasswordDto editedData)
         {
+           
 
+            var userIdInt = FindUserId();
+            var user = _dbContext.User.FirstOrDefault(x => x.Id == userIdInt);
+            if (user == null) throw new NotFoundException("User not found!");
+
+            var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, editedData.Password);
+            if (result == PasswordVerificationResult.Failed) throw new BadRequestException("Invaild password");
+
+            
+
+            if (editedData.NewPassword != editedData.ConfirmNewPassword) throw new BadRequestException("New Passwords are not the same!");
+            var hashedPassword = _passwordHasher.HashPassword(user, editedData.NewPassword);
+            user.PasswordHash = hashedPassword;
+
+            
+
+     
+            _dbContext.SaveChanges();
         }
 
         public int FindUserId()
@@ -169,27 +187,35 @@ namespace Randomizer.Services
         public EditUserDto FindUserToEdit(int id)
         {
             var user = _dbContext.User.FirstOrDefault(x => x.Id == id);
+            EditUserDto dto = new EditUserDto();
 
-            return user;
+            dto.Name = user.Name;
+            
+            dto.Nationality = user.Nationality;
+            dto.DateOfBirth = user.DateOfBirth;
+
+            return dto;
         }
 
-        
 
-        public void DeleteUser()
+
+        public void DeleteUser(string password)
         {
             var userIdInt = FindUserId();
 
 
-            var deleteUser = _dbContext.User.FirstOrDefault(x => x.Id == userIdInt);
+            var user = _dbContext.User.FirstOrDefault(x => x.Id == userIdInt);
 
 
-            if (deleteUser == null)
+            if (user == null)
             {
                 throw new NotFoundException("User not found!");
             }
 
+            var result = _passwordHasher.VerifyHashedPassword(user, user.PasswordHash, password);
+            if (result == PasswordVerificationResult.Failed) throw new BadRequestException("Invaild password");
 
-            _dbContext.User.Remove(deleteUser);
+            _dbContext.User.Remove(user);
             _dbContext.SaveChanges();
             _contextAccessor.HttpContext.SignOutAsync();
         }

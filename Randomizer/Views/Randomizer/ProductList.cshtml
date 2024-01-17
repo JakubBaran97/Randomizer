@@ -99,8 +99,9 @@
                             <th>@product.Description</th>
 
 
-                            
+                            <th><a href="@Url.Action("EditProduct", "Randomizer", new { id = product.Id })" class="button">Edit</a></th>
                             <th><a href="@Url.Action("DeleteProduct", "Randomizer", new { id = product.Id })" class="button">Delete</a></th>
+                            
 
 
                             

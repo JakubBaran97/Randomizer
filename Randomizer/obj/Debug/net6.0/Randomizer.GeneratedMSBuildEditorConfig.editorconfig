@@ -28,6 +28,22 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxDcmVhdGVQcm9kdWN0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/DeleteUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxEZWxldGVVc2VyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/EditMenu.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxFZGl0TWVudS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/EditPassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxFZGl0UGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/EditProduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxFZGl0UHJvZHVjdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Kubunio/Documents/GitHub/Randomizer/Randomizer/Views/Randomizer/EditUser.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmFuZG9taXplclxFZGl0VXNlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

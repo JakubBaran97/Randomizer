@@ -13,16 +13,21 @@ namespace Randomizer.Services
     {
         public void MenuCreate(Menu menu);
         public List<Menu> MenuSearch();
-
-        public List<Product> ProductList(int id);
-
+        public Menu FindMenu(int id);
+        public void EditMenu(Menu editedMenu, int id);
+        public void DeleteMenu(int id);
         public void ProductCreate(Product product, int menuId);
+        public List<Product> ProductList(int id);
+        public Product FindProduct(int id);
+        public void EditProduct(Product editedProduct, int id);
+
+        public void DeleteProduct(int id);
 
         public Product Random(List<Product> list);
 
-        public void DeleteMenu(int id);
+        
 
-        public void DeleteProduct(int id);
+        
 
         
     }
@@ -69,6 +74,52 @@ namespace Randomizer.Services
 
         }
 
+        public Menu FindMenu(int id)
+        {
+            var menu = _dbContext.Menu.First(menu => menu.Id == id);
+            if (menu is null) throw new NotFoundException("Menu not found");
+            return menu;
+        }
+
+        public void EditMenu(Menu editedMenu, int id)
+        {
+            var menu = _dbContext.Menu.FirstOrDefault(x => x.Id == id);
+            if (menu is null) throw new NotFoundException("Menu not Found");
+
+            var authorizationResult = _authorizationService.AuthorizeAsync
+                (_userContextService.User, menu, new MenuOperationRequirement(MenuResourceOperation.Delete)).Result;
+
+            if (!authorizationResult.Succeeded) throw new ForbidException("Unauthorized");
+
+            menu.Name= editedMenu.Name;
+
+            _dbContext.SaveChanges();
+
+        }
+        public void DeleteMenu(int id)
+        {
+            var menu = _dbContext.Menu.FirstOrDefault(x => x.Id == id);
+            var product = _dbContext.Product.Where(x => x.MenuId == id);
+
+            if (menu is null) throw new NotFoundException("Menu not Found");
+
+            var authorizationResult = _authorizationService.AuthorizeAsync
+                (_userContextService.User, menu, new MenuOperationRequirement(MenuResourceOperation.Delete)).Result;
+
+            if (!authorizationResult.Succeeded) throw new ForbidException("Unauthorized");
+
+
+
+
+            _dbContext.Product.RemoveRange(product);
+            _dbContext.Menu.Remove(menu);
+
+            _dbContext.SaveChanges();
+
+
+
+        }
+
         public  void ProductCreate( Product product, int menuId)
         {
             if (product.Name == null) throw new NotFoundException("Fields are empty");
@@ -101,7 +152,7 @@ namespace Randomizer.Services
 
             var product = _dbContext.Product.Where(product => product.MenuId == id).ToList();
 
-            if (product.Count == 0) { throw new NotFoundException("Product not Found"); }
+            if (product.Count == 0)  throw new NotFoundException("Product not Found"); 
 
             
 
@@ -109,38 +160,34 @@ namespace Randomizer.Services
 
         }
 
-       
-
-        public Product Random(List<Product> list)
+        public Product FindProduct(int id)
         {
-            Random rand = new Random();
-            var losowyElement = list[rand.Next(list.Count)];
-            return losowyElement;
+            var product = _dbContext.Product.FirstOrDefault(product => product.Id == id);
+            if (product is null) throw new NotFoundException("Product not found");
+            return product;
         }
 
-        public void DeleteMenu(int id)
+        public void EditProduct(Product editedProduct, int id)
         {
-            var menu = _dbContext.Menu.FirstOrDefault(x => x.Id == id);
-            var product = _dbContext.Product.Where(x => x.MenuId == id);
-
-            if (menu is null) throw new NotFoundException("Menu not Found");
+            var product = _dbContext.Product.FirstOrDefault(x => x.Id == id);
+            if (product is null) throw new NotFoundException("Product not Found");
 
             var authorizationResult = _authorizationService.AuthorizeAsync
-                (_userContextService.User, menu, new MenuOperationRequirement(MenuResourceOperation.Delete)).Result;
+               (_userContextService.User, product, new ProductOperationRequirement(ProductResourceOperation.Delete)).Result;
 
-            if (!authorizationResult.Succeeded)
-            {
-                throw new ForbidException();
-            }
+            if (!authorizationResult.Succeeded) throw new ForbidException("Unauthorized");
 
-            _dbContext.Product.RemoveRange(product);
-            _dbContext.Menu.Remove(menu);
+            product.Name = editedProduct.Name;
+            product.Description = editedProduct.Description;
 
             _dbContext.SaveChanges();
 
-
-
         }
+
+
+
+
+
 
         public void DeleteProduct(int id)
         {
@@ -151,10 +198,7 @@ namespace Randomizer.Services
             var authorizationResult = _authorizationService.AuthorizeAsync
                 (_userContextService.User, product, new ProductOperationRequirement(ProductResourceOperation.Delete)).Result;
 
-            if (!authorizationResult.Succeeded)
-            {
-                throw new ForbidException();
-            }
+            if (!authorizationResult.Succeeded) throw new ForbidException("Unauthorized");
 
             _dbContext.Product.Remove(product);
 
@@ -164,7 +208,15 @@ namespace Randomizer.Services
 
         }
 
-        
+        public Product Random(List<Product> list)
+        {
+            Random rand = new Random();
+            var losowyElement = list[rand.Next(list.Count)];
+            return losowyElement;
+        }
+
+
+
 
     }
 }
