@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>C:\Users\Kubunio\Documents\GitHub\Randomizer\Randomizer\bin\Release\net6.0\publish\</_PublishTargetUrl>
+    <_PublishTargetUrl>bin\Release\net6.0\publish\</_PublishTargetUrl>
     <History>True|2023-11-06T18:58:41.5532031Z;</History>
     <LastFailureDetails />
   </PropertyGroup>
@@ -14,5 +14,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <Value>
       </Value>
     </EFMigrations>
+  </ItemGroup>
+  <ItemGroup>
+    <File Include="css/style.css">
+      <publishTime>01/21/2024 10:16:52</publishTime>
+    </File>
   </ItemGroup>
 </Project>

@@ -6,72 +6,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Your Razor Page</title>
-    <link rel="stylesheet" href="~/css/mystyles.css" asp-append-version="true" />
-    <style>
-
-        #panel {
-            width: 400px;
-            margin: 0 auto;
-            padding: 15px 0 0;
-            background: #fff;
-            border: 1px solid silver;
-            font: 16px calibri;
-            letter-spacing: -1px;
-            -webkit-box-shadow: 0 0 2px silver;
-            -moz-box-shadow: 0 0 2px silver;
-            box-shadow: 0 0 2px silver;
-        }
-
-        label {
-            display: block;
-            width: 260px;
-            padding: 10px 20px;
-            color: #696969;
-            font-size: 16px;
-            text-shadow: 0 0 1px silver;
-        }
-
-
-
-
-
-        #lower {
-            background: #ecf2f5;
-            width: 100%;
-            padding: 5px 20px;
-            margin-top: 20px;
-        }
-
-
-
-        #custom-link {
-            width: 70px;
-            padding: 5px 13px;
-            border: 1px solid #005f85;
-            color: white;
-            text-shadow: 0 0 1px black;
-            background: #98c9dc;
-            position: left;
-            left: 180px;
-            text-decoration: none;
-            cursor: default;
-        }
-
-        #panel, #custom-link {
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
-        }
-
-
-
-      
-
-    </style>
+    <link rel="stylesheet" href="/css/style.css" />
+    
     <script>
 
-        function printDiv() {
-            var printContents = document.getElementById('printableDiv').innerHTML;
+        function PrintQR() {
+            var printContents = document.getElementById('QR').innerHTML;
             var originalContents = document.body.innerHTML;
 
             document.body.innerHTML = printContents;
@@ -82,20 +22,23 @@
         }
     </script>
 
+    
+
+
 </head>
 
 <body>
     <div id="panel">
         <form>
-            <div id="printableDiv">
+            <div id="QR">
 
-                <center><img src="@ViewBag.QRCode" style="width: 200px; height: 200px;" /></center>
+                <center><img src="@ViewBag.QRCode" style="width: 200px; height: 200px;" class=" QrCode" /></center>
 
             </div>
 
             <div id="lower">
 
-                <button onclick="printDiv()">Drukuj</button>
+                <button onclick="PrintQR()" class="button">Drukuj</button>
 
             </div>
         </form>

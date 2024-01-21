@@ -77,7 +77,7 @@ namespace Randomizer.Services
         public Menu FindMenu(int id)
         {
             var menu = _dbContext.Menu.First(menu => menu.Id == id);
-            if (menu is null) throw new NotFoundException("Menu not found");
+            if (menu == null) throw new NotFoundException("Menu not found");
             return menu;
         }
 
@@ -91,6 +91,7 @@ namespace Randomizer.Services
 
             if (!authorizationResult.Succeeded) throw new ForbidException("Unauthorized");
 
+            if (editedMenu.Name == null) throw new BadRequestException("Field are empty");
             menu.Name= editedMenu.Name;
 
             _dbContext.SaveChanges();
@@ -122,8 +123,8 @@ namespace Randomizer.Services
 
         public  void ProductCreate( Product product, int menuId)
         {
-            if (product.Name == null) throw new NotFoundException("Fields are empty");
-            if (product.Description == null) throw new NotFoundException("Fields are empty");
+            if (product.Name == null || product.Description == null) throw new NotFoundException("Fields are empty");
+            
            
 
 
@@ -176,7 +177,7 @@ namespace Randomizer.Services
                (_userContextService.User, product, new ProductOperationRequirement(ProductResourceOperation.Delete)).Result;
 
             if (!authorizationResult.Succeeded) throw new ForbidException("Unauthorized");
-
+            if (editedProduct.Name == null || editedProduct.Description == null) throw new BadRequestException("Fields are empty");
             product.Name = editedProduct.Name;
             product.Description = editedProduct.Description;
 
