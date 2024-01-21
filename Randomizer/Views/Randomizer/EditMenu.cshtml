@@ -58,21 +58,44 @@
 
 
 
-            input[type="submit"] {
-                width: 70px;
-                padding: 5px 13px;
-                border: 1px solid #005f85;
-                color: white;
-                text-shadow: 0 0 1px black;
-                background: #98c9dc;
-                position: left;
-                left: 180px;
-            }
+          
 
-            #panel, input[type="submit"] {
+            #panel {
                 -webkit-border-radius: 5px;
                 -moz-border-radius: 5px;
                 border-radius: 5px;
+            }
+
+            .button {
+                display: inline-block;
+                padding: 10px 20px;
+                background: #98c9dc;
+                border: 1px solid #005f85;
+                color: white;
+                text-decoration: none;
+                border-radius: 5px;
+                cursor: pointer;
+                text-align: center;
+                width: 30%;
+                text-shadow: 0 0 1px black;
+            }
+
+                .button:hover {
+                    background: #98c9dc;
+                    border: 1px solid #005f85;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    text-align: center;
+                    width: 30%;
+                    text-shadow: 0 0 1px black;
+                }
+
+            .button-container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
 
         </style>
@@ -89,7 +112,7 @@
 
                 <div id="lower">
 
-                    <input type="submit" value="Edit">
+                    <input type="submit" value="Edit" class="button">
                     <a href="@Url.Action("DeleteMenu", "Randomizer", new { id = Model.Id })" class="button">Delete</a>
                 </div>
             </form>

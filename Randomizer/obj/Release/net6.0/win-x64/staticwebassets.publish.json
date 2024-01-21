@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BJXqnGv2IAG2AIC4K9+q+vxxggsCXfXGc+jWulpd3P0=",
+  "Hash": "OEVsXdbXJe2NYw1sE6ThT9mrgnCKfN/p+IQVjd2JUAo=",
   "Source": "Randomizer",
   "BasePath": "_content/Randomizer",
   "Mode": "Default",
@@ -66,6 +66,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\wwwroot\\css\\style.css",
+      "SourceId": "Randomizer",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\wwwroot\\",
+      "BasePath": "_content/Randomizer",
+      "RelativePath": "css/style.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
       "Identity": "C:\\Users\\Kubunio\\Documents\\GitHub\\Randomizer\\Randomizer\\wwwroot\\favicon.ico",
