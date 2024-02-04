@@ -69,14 +69,13 @@
 }
 
 @media print {
-    .QrCode {
+    .QR {
         max-width: 100%;
         height: auto;
-        width: 500vw; 
-        height: 500vw;
+        width: 50vw;
         margin: 10vh auto;
         display: block;
-        border: 20px solid black; 
+        border: 20px solid black;
     }
 }
 

@@ -12,6 +12,7 @@
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
         <script>
+
             $(document).ready(function () {
 
                 $.get("https://restcountries.com/v2/all", function (data) {
@@ -21,6 +22,9 @@
                     });
                 });
             });
+           
+            
+
         </script>
 
         <style>
@@ -100,11 +104,11 @@
 
 
                 @Html.LabelFor(model => model.Nationality)
-                <select id="nationality" name="Nationality"></select>
+                <select id="nationality" name="Nationality">  <option>@Model.Nationality</option></select>
 
 
                 @Html.Label("Date of Birth")
-                @Html.TextBoxFor(model => model.DateOfBirth, new { type = "date", id = "date"})
+                @Html.TextBoxFor(model => model.DateOfBirth, "{0:yyyy-MM-dd}", new { type = "date", id = "date", value = Model.DateOfBirth})
 
                 @Html.LabelFor(model => model.Password, "Insert password to confirm")
                 @Html.TextBoxFor(model => model.Password, new {type = "password", id = "password"})

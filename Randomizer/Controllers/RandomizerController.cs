@@ -34,18 +34,20 @@ namespace Randomizer.Controllers
         }
         //Index
         [Authorize]
+        
         public IActionResult Index()
         {
 
             return View();
         }
         //User
+        [Route("login")]
         public IActionResult Login()
         {
 
             return View();
         }
-
+        [Route("login")]
         [HttpPost]
         public IActionResult Login(Login login)
         {
